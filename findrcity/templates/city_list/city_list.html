@@ -1,11 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>City List</title>
+    <link rel="stylesheet" href="{% static 'css/temp_styles.css' %}">
 </head>
 <body>
-    <h1>Temporary City List placeholder</h1>
+    <h1>Temporary City List placeholder (if this is red, your static settings are correct)</h1>
     <p>
         <a href="{% url 'city_detail' %}">City Detail Placeholder</a>
     </p>
