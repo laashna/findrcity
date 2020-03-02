@@ -56,37 +56,40 @@ meta_data = [
 
 ]
 
-# using nested dict to prevent key errors
-nested_data = lambda: defaultdict(nested_data)
-data = nested_data()
 
-for page_to_scrape in meta_data:
+def get_weather_data():
+    # using nested dict to prevent key errors
+    nested_data = lambda: defaultdict(nested_data)
+    data = nested_data()
 
-    # make the request
-    page = requests.get(page_to_scrape['url'])
+    for page_to_scrape in meta_data:
 
-    # make the soup object
-    soup = BeautifulSoup(page.content, 'html.parser')
+        # make the request
+        page = requests.get(page_to_scrape['url'])
 
-    # find all tables in the page with weather info in them
-    weather_tables = soup.find_all('table', class_='articletable')
+        # make the soup object
+        soup = BeautifulSoup(page.content, 'html.parser')
 
-    # for each table that has weather data (there are usually 3 on the site)
-    for table in weather_tables:
-        # for each row in that table
-        for row in table.select('tr'):
-            # skip table headings
-            if row.th:
-                continue
+        # find all tables in the page with weather info in them
+        weather_tables = soup.find_all('table', class_='articletable')
 
-            row_contents = [item for item in row.stripped_strings]
+        # for each table that has weather data (there are usually 3 on the site)
+        for table in weather_tables:
+            # for each row in that table
+            for row in table.select('tr'):
+                # skip table headings
+                if row.th:
+                    continue
 
-            for field in page_to_scrape['fields']:
-                city_state = row_contents[page_to_scrape['city_pos']]
+                row_contents = [item for item in row.stripped_strings]
 
-                city = city_state[:city_state.find(',')]
-                state = city_state[city_state.find(','):].strip(', ')
+                for field in page_to_scrape['fields']:
+                    city_state = row_contents[page_to_scrape['city_pos']]
 
-                data[city][field] = row_contents[page_to_scrape['fields'][field]]
-                data[city]['state'] = state
+                    city = city_state[:city_state.find(',')]
+                    state = city_state[city_state.find(','):].strip(', ')
 
+                    data[city][field] = row_contents[page_to_scrape['fields'][field]]
+                    data[city]['state'] = state
+
+        return data
