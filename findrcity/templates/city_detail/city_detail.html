@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+
+{% extends 'base/base.html' %}
 <head>
-    <meta charset="UTF-8">
-    <title>City Detail</title>
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
 </head>
+
 <body>
-    <h1>Temporary City Detail placeholder</h1>
-    <p>
-        <a href="{% url 'city_list' %}">City List Placeholder</a>
-    </p>
+{% block heading %}
+
+{% endblock %}
+
+{% block cityDetail %}
+    <div class>
+        <p>City Detail</p>
+    </div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
 </body>
-</html>
