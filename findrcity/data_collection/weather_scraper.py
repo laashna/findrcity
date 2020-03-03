@@ -92,4 +92,4 @@ def get_weather_data():
                     data[city][field] = row_contents[page_to_scrape['fields'][field]]
                     data[city]['state'] = state
 
-        return data
+    return data
