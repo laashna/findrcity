@@ -18,7 +18,9 @@ def get_crime_data():
 
     crime_table = soup.select_one('#mw-content-text > div > table > tbody')
 
-    data = defaultdict()
+    nested_data = lambda: defaultdict(nested_data)
+    data = nested_data()
+    # data = defaultdict()
 
     for row in crime_table.select('tr'):
 
@@ -31,20 +33,17 @@ def get_crime_data():
         # Remove superscripts from city name
         city = ''.join([i for i in city_original if not i.isdigit() and i != ','])
 
-        total_violent_crimes = clean_data(row_cells[3].text)
-        murder = clean_data(row_cells[4].text)
-        rape = clean_data(row_cells[5].text)
-        robbery = clean_data(row_cells[6].text)
-        assault = clean_data(row_cells[7].text)
-        total_property_crimes = clean_data(row_cells[8].text)
-        burglary = clean_data(row_cells[9].text)
-        larceny_theft = clean_data(row_cells[10].text)
-        motor_vehicle_theft = clean_data(row_cells[11].text)
+        data[city]['total_violent_crimes'] = clean_data(row_cells[3].text)
+        data[city]['murder'] = clean_data(row_cells[4].text)
+        data[city]['rape'] = clean_data(row_cells[5].text)
+        data[city]['robbery'] = clean_data(row_cells[6].text)
+        data[city]['assault'] = clean_data(row_cells[7].text)
+        data[city]['total_property_crimes'] = clean_data(row_cells[8].text)
+        data[city]['burglary'] = clean_data(row_cells[9].text)
+        data[city]['larceny_theft'] = clean_data(row_cells[10].text)
+        data[city]['motor_vehicle_theft'] = clean_data(row_cells[11].text)
         # Remove newline character on the end of line cell
-        arson = clean_data(re.sub('\\n', '', row_cells[12].text))
-
-        data[
-            city] = total_violent_crimes, murder, rape, robbery, assault, total_property_crimes, burglary, larceny_theft, motor_vehicle_theft, arson
+        data[city]['arson'] = clean_data(re.sub('\\n', '', row_cells[12].text))
 
     return data
 
