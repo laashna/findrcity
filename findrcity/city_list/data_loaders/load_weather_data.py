@@ -1,6 +1,7 @@
 # from city_list.models import City
 from city_list.models import City, State
 from data_collection.weather_scraper import get_weather_data
+from data_collection.population_scraper import get_population_data
 
 def load_population_data():
     population_data = get_population_data()
