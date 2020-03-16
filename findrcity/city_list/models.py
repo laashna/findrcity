@@ -35,6 +35,8 @@ class City(models.Model):
     transit_score = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     bike_score = models.DecimalField(max_digits=10, decimal_places=2, null=True)
 
+    unemployment_rate = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+
     state = models.ForeignKey('State', on_delete=models.DO_NOTHING, null=True)
 
 
