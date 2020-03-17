@@ -11,7 +11,7 @@ def get_city(data):
 
 
 def get_economy_data():
-    soup = BeautifulSoup(open("unemployment_table.html"), "html.parser")
+    soup = BeautifulSoup(open("data_collection/economy_scraper/unemployment_table.html"), "html.parser")
     data = defaultdict()
 
     for row in soup.select('tr'):
