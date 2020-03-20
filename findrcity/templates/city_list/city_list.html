@@ -5,5 +5,9 @@
 {% block heading %}<h1 class="masthead-heading text-uppercase mb-0">City List</h1>{% endblock %}
 
 {% block body %}
-
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'city_list/filter_categories.html' %}
+        </div>
+    </div>
 {% endblock %}
