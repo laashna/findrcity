@@ -23,6 +23,8 @@
     {# Theme CSS #}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
 </head>
 
 <body id="page-top">
@@ -50,6 +52,24 @@
         {# Masthead Subheading #}
         {# <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p> #}
 
+        <table id="table_id" class="display">
+            <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </header>
 {% block body %}
@@ -71,8 +91,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 {# Custom scripts for this template #}
+<script src="{% static 'js/findrcity.js' %}"></script>
 <script src="{% static 'js/findrcity.min.js' %}"></script>
-
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 </body>
 
