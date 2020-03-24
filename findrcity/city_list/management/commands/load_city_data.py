@@ -4,6 +4,7 @@ from city_list.data_loaders.load_crime_data import load_crime_data
 from city_list.data_loaders.load_population_data import load_population_data
 from city_list.data_loaders.load_walkscore_data import load_walkscore_data
 from city_list.data_loaders.load_weather_data import load_weather_data
+from city_list.data_loaders.load_economy_data import load_economy_data
 
 
 class Command(BaseCommand):
@@ -18,4 +19,5 @@ class Command(BaseCommand):
         load_population_data()
         load_walkscore_data()
         load_crime_data()
+        load_economy_data()
 
