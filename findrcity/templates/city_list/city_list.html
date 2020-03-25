@@ -5,5 +5,5 @@
 {% block heading %}<h1 class="masthead-heading text-uppercase mb-0">City List</h1>{% endblock %}
 
 {% block body %}
-{% include 'city_list/datatable.html' %}
+{% include 'city_list/datatable.html' with city=city %}
 {% endblock %}
