@@ -2,14 +2,24 @@
     <thead>
     <tr>
         <th>City</th>
-        <th>Temperature</th>
+        <th>Population</th>
+        <th>Average Temperature Range</th>
+        <th>Average Sunny Days</th>
+        <th>Unemployment</th>
+        <th>Violent Crime</th>
+        <th>Walk Score</th>
     </tr>
     </thead>
     <tbody>
         {% for c in city %}
             <tr>
-           <td>{{ c.name }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.population }}</td>
             <td>{{ c.temperature_high }} - {{ c.temperature_low }}</td>
+            <td>{{ c.sunshine_clear_days }}</td>
+            <td>{{ c.unemployment_rate }}</td>
+            <td>{{ c.total_violent_crimes }}</td>
+            <td>{{ c.walkscore }}</td>
             </tr>
         {% endfor %}
 
