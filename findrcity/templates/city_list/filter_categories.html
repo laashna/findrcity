@@ -1,97 +1,20 @@
 {# Filter #}
 
-<div class="accordion" id="Filter">
-    <div class="container">
-        {% for key, value in category.items %}
+<div class="container">
+    {% for key, value in category.items %}
+        <div id="accordion">
             <div class="card">
-                <div class="card-header" id="{{ value.member }}">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                data-target="#{{ value.collapse }}"
-                                aria-expanded="false" aria-controls="{{ value.collapse }}">
-                            {{value.name}}
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="{{ value.collapse }}" class="collapse" aria-labelledby="{{ value.name }}" data-parent="#Filter">
+                <a class="card-link card-header" data-toggle="collapse"
+                   href="#{{ key }}">
+                    {{ key }}
+                </a>
+                <div id="{{key}}" class="collapse" data-parent="#accordion">
                     <div class="card-body">
                         {{ value.body }}
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 </div>
 
-
-{##}
-{#        <div class="card">#}
-{#            <div class="card-header" id="Crime">#}
-{#                <h2 class="mb-0">#}
-{#                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"#}
-{#                            data-target="#collapseCrime" aria-expanded="false" aria-controls="collapseCrime">#}
-{#                        Crime#}
-{#                    </button>#}
-{#                </h2>#}
-{#            </div>#}
-{#            <div id="collapseCrime" class="collapse" aria-labelledby="Crime" data-parent="#Filter">#}
-{#                <div class="card-body">#}
-{#                    testing#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{#        <div class="card">#}
-{#            <div class="card-header" id="Population">#}
-{#                <h2 class="mb-0">#}
-{#                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"#}
-{#                            data-target="#collapsePopulation" aria-expanded="false" aria-controls="collapsePopulation">#}
-{#                        Population#}
-{#                    </button>#}
-{#                </h2>#}
-{#            </div>#}
-{#            <div id="collapsePopulation" class="collapse" aria-labelledby="Population" data-parent="#Filter">#}
-{#                <div class="card-body">#}
-{#                    hello#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{#        <div class="card">#}
-{#            <div class="card-header" id="Transportation">#}
-{#                <h2 class="mb-0">#}
-{#                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"#}
-{#                            data-target="#collapseTransportation" aria-expanded="false"#}
-{#                            aria-controls="collapseTransportation">#}
-{#                        Transportation#}
-{#                    </button>#}
-{#                </h2>#}
-{#            </div>#}
-{#            <div id="collapseTransportation" class="collapse" aria-labelledby="Transportation" data-parent="#Filter">#}
-{#                <div class="card-body">#}
-{#                    remove me#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{#        <div class="card">#}
-{#            <div class="card-header" id="Economics">#}
-{#                <h2 class="mb-0">#}
-{#                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"#}
-{#                            data-target="#collapseEconomics" aria-expanded="false" aria-controls="collapseEconomics">#}
-{#                        Economics#}
-{#                    </button>#}
-{#                </h2>#}
-{#            </div>#}
-{#            <div id="collapseEconomics" class="collapse" aria-labelledby="Economics" data-parent="#Filter">#}
-{#                <div class="card-body">#}
-{#                    save me#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}

@@ -6,8 +6,14 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-3">
-            {% include 'city_list/filter_categories.html' %}
+        <div class="col col-md-3">
+            <div class="container" id="filter_container">
+                {% include 'city_list/filter_categories.html' %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            rest of the body goes here
         </div>
     </div>
 {% endblock %}
+
