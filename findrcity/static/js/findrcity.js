@@ -60,4 +60,16 @@
     });
   });
 
+  //MAP!!
+  var mymap = L.map("mapid").setView([39.381266, -97.922211], 3);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiYWFzaG5hbGFraG5pIiwiYSI6ImNrODlsMzNxMDAwNDgza2wyMG4xYWs2Z3cifQ.WqySAawN-Nk0wnzKu7Unfw'
+  }).addTo(mymap);
+
 })(jQuery); // End of use strict
