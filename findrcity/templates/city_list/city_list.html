@@ -5,16 +5,18 @@
  {% block heading %}City List{% endblock %}
 
 {% block body %}
-    <div id="city-map"></div>
+    <div class="body-color">
+        <div id="city-map"></div>
 
-    <div class="row">
-        <div class="col col-md-4 col-sm-12 col-lg-3">
-            <div class="container" id="filter_container">
-                {% include 'city_list/filter_categories.html' %}
+        <div class="row">
+            <div class="col col-md-4 col-sm-12 col-lg-3">
+                <div class="container" id="filter_container">
+                    {% include 'city_list/filter_categories.html' %}
+                </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            rest of the body goes here
+            <div class="col-md-8">
+                rest of the body goes here
+            </div>
         </div>
     </div>
 {% endblock %}
