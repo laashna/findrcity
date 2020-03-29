@@ -1,0 +1,18 @@
+{# Filter #}
+
+{% for key, value in category.items %}
+    <div id="accordion">
+        <div class="card">
+            <a class="card-link card-header" data-toggle="collapse"
+               href="#{{ key }}">
+                {{ key }}
+            </a>
+            <div id="{{ key }}" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    {{ value.body }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
