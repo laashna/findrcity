@@ -9819,7 +9819,10 @@ button.close {
 }
 
 #city-map {
-  height: 180px;
+  height: 400px;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .divider-custom {
