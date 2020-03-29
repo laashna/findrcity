@@ -73,4 +73,6 @@
     accessToken: 'pk.eyJ1IjoiYWFzaG5hbGFraG5pIiwiYSI6ImNrODlsMzNxMDAwNDgza2wyMG4xYWs2Z3cifQ.WqySAawN-Nk0wnzKu7Unfw'
   }).addTo(mymap);
 
+  var marker = L.marker([39.381266, -97.922211]).addTo(mymap);
+
 })(jQuery); // End of use strict
