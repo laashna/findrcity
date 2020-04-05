@@ -2,10 +2,11 @@
 
 {% block title %}{% endblock %}
 
-{% block heading %}<h1 class="masthead-heading text-uppercase mb-0">City Detail</h1>{% endblock %}
+{% block heading %}<h1 class="masthead-heading text-uppercase mb-0"> {{ info.name }}</h1>{% endblock %}
 
 {% block body %}
 
+        <p> It has a temperature high of {{ info.temperature_high }}</p>
 {% endblock %}
 
 

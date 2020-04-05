@@ -1,6 +1,6 @@
 from django.urls import path
-from city_detail.views import CityDetailView
+from city_detail.views import Info
 
 urlpatterns = [
-    path('', CityDetailView.as_view(), name='city_detail')
+    path('<int:pk>', Info.as_view(), name="info")  # int:pk is showing the primary key for the specific database object
 ]
