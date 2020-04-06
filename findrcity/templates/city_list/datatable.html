@@ -14,8 +14,12 @@
         <tr>
             {% for header, value in city_list_headers.items %}
                 <td>
-                    {% with field=value.db_field %}
-                        {{ city|get_obj_attr:field }}
+                 {% with field=value.db_field %}
+                        {% if field == 'name' %}
+                            <a href={% url "city" city.name %}>{{ city.name }}</a>
+                        {% else %}
+                            {{ city|get_obj_attr:field }}
+                        {% endif %}
                     {% endwith %}
                 </td>
             {% endfor %}
@@ -24,3 +28,4 @@
 
     </tbody>
 </table>
+
