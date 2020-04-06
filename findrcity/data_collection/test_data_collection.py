@@ -1,5 +1,6 @@
 from collections import defaultdict
 import pytest
+from data_collection.economy_scraper.economy_scraper import get_economy_data
 
 from data_collection.walkscore_scraper.walkscore_scraper import get_walkscore_data
 
@@ -9,6 +10,9 @@ def walkscore_data():
     return get_walkscore_data()
 
 
+@pytest.fixture(scope="module")
+def economy_data():
+    return get_economy_data()
 class TestWalkScoreScraper:
     # we want to test that the return type is always a defaultdict, since our model's
     # loaddata function is built around this data type
@@ -39,3 +43,14 @@ class TestWalkScoreScraper:
         for city in walkscore_data:
             bike_score = walkscore_data[city]['bike_score']
             assert (bike_score is not None and bike_score > 0) == True
+
+class TestEconomyScraper:
+    # we want to test that the return type is always a defaultdict, since our model's
+    # loaddata function is built around this data type
+    def test_return_type_defaultdict(self, economy_data):
+        assert type(economy_data) == defaultdict
+
+    def test_all_cities_have_unemployment(self, economy_data):
+        for city in economy_data:
+            unemployment_rate = economy_data[city]
+            assert (unemployment_rate is not None and unemployment_rate > 0) == True
