@@ -347,3 +347,5 @@ findrcity/.venv/
 findrcity/*/migrations/*
 
 findrcity/findrcity/settings.py
+
+findrcity/node_modules/*
