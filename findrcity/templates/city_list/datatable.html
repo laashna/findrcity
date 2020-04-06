@@ -1,27 +1,26 @@
+{% load city_list_tags %}
+{# Ignore any warning about city_list_tags or get_obj_attr being unresolved #}
+{# you're seeing it bc pycharm doesn't have built in support for recognizing custom django template tags  #}
 <table id="table_id" class="display">
     <thead>
     <tr>
-        <th>City</th>
-        <th>Population</th>
-        <th>Average Temperature Range</th>
-        <th>Average Sunny Days</th>
-        <th>Unemployment</th>
-        <th>Violent Crime</th>
-        <th>Walk Score</th>
+        {% for header, value in city_list_headers.items %}
+            <th>{{ value.display }}</th>
+        {% endfor %}
     </tr>
     </thead>
     <tbody>
-        {% for c in city %}
-            <tr>
-            <td>{{ c.name }}</td>
-            <td>{{ c.population }}</td>
-            <td>{{ c.temperature_high }} - {{ c.temperature_low }}</td>
-            <td>{{ c.sunshine_clear_days }}</td>
-            <td>{{ c.unemployment_rate }}</td>
-            <td>{{ c.total_violent_crimes }}</td>
-            <td>{{ c.walkscore }}</td>
-            </tr>
-        {% endfor %}
+    {% for city in cities %}
+        <tr>
+            {% for header, value in city_list_headers.items %}
+                <td>
+                    {% with field=value.db_field %}
+                        {{ city|get_obj_attr:field }}
+                    {% endwith %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
 
     </tbody>
 </table>
