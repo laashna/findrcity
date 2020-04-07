@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %} FindrCity - {{ city.name }}{% endblock %}
 
@@ -6,6 +7,7 @@
 
 {% block body %}
         <p> (sample text) It has a temperature high of {{  city.temperature_high }}</p>
+        <img src="{% static 'img/' %}{{ city.name }}.jpg" alt="skyline of city">
 {% endblock %}
 
 
