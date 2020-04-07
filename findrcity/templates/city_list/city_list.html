@@ -2,17 +2,27 @@
 
 {% block title %} city List {% endblock %}
 
-{% block heading %}<h1 class="masthead-heading text-uppercase mb-0">City List</h1>{% endblock %}
+{% block heading %}City List{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col col-md-4 col-sm-12 col-lg-3">
-            <div class="container" id="filter_container">
-                {% include 'city_list/filter_categories.html' %}
+
+    <div class="body-color">
+        <div class="row">
+            <div class="col-12">
+                <div id="city-map"></div>
             </div>
         </div>
-        <div class="col-md-8">
-            {% include 'city_list/datatable.html' with cities=cities city_list_headers=city_list_headers %}
+
+        <div class="row">
+            <div class="col col-md-4 col-sm-12 col-lg-3">
+                <div class="container" id="filter_container">
+                    {% include 'city_list/filter_categories.html' %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                {% include 'city_list/datatable.html' with cities=cities city_list_headers=city_list_headers %}
+            </div>
         </div>
+
     </div>
 {% endblock %}
