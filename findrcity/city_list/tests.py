@@ -28,3 +28,14 @@ class TestCityModel(TestCase):
     def test_city_state_relation(self):
         city = City.objects.get(id=1)
         self.assertEquals(city.get_state_name(), 'Louisiana')
+
+
+class TestStateModel(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        State.objects.create(name='Louisiana')
+
+    def test_state_name_length(self):
+        state = State.objects.get(id=1)
+        max_length = state._meta.get_field('name').max_length
+        self.assertEquals(max_length, 100)
