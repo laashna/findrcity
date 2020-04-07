@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class City(models.Model):
@@ -39,9 +40,14 @@ class City(models.Model):
 
     state = models.ForeignKey('State', on_delete=models.DO_NOTHING, null=True)
 
+    def get_absolute_url(self):
+        return reverse('city_detail', args=[self.name])
+
+    def get_state_name(self):
+        return self.state.name
+
 
 class State(models.Model):
     id = models.AutoField(primary_key=True)
 
     name = models.CharField(max_length=100, null=True, default=None)
-
